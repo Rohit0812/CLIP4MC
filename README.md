@@ -68,11 +68,11 @@ You can use the scripts below to train the model.
 If you find our work useful in your research and would like to cite our project, please use the following citation:
 
 ```latex
-@article{jiang2024reinforcement,
- title={Reinforcement Learning Friendly Vision-Language Model for Minecraft},
- author={Jiang, Haobin and Yue, Junpeng and Luo, Hao and Ding, Ziluo and Lu, Zongqing},
- journal={arXiv preprint arXiv:2303.10571},
- year={2024}
+@inproceedings{jiang2024reinforcement,
+  title={Reinforcement Learning Friendly Vision-Language Model for Minecraft},
+  author={Jiang, Haobin and Yue, Junpeng and Luo, Hao and Ding, Ziluo and Lu, Zongqing},
+  booktitle={European Conference on Computer Vision (ECCV)},
+  year={2024}
 }
 ```
 
