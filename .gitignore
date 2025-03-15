@@ -6,3 +6,4 @@ __pycache__/
 # RSR-repo
 ViT-B-16.pt
 dataset/
+ckpt/
