@@ -92,7 +92,7 @@ def split_dataset(process_name: str):
 @lru_cache(None)
 def get_processed_list(dataset: Literal['train', 'val', 'test'] = None):
 
-    dataset_info_path = "/json/file/of/dataset"
+    dataset_info_path = "log.json"
     with open(dataset_info_path, 'r') as f:
         datasets = json.load(f)
     if dataset is None:
