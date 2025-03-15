@@ -3,3 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# RSR-repo
+ViT-B-16.pt
+dataset/
+ckpt/

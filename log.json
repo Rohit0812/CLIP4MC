@@ -1,0 +1,4 @@
+{
+  "train": ["./dataset/data_dir_0", "./dataset/data_dir_1", "./dataset/data_dir_2"],
+  "test" : ["./dataset/data_dir_3", "./dataset/data_dir_4"]
+}

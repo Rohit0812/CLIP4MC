@@ -30,6 +30,9 @@ data_config:
   test_ratio: 0.00625
   val_ratio: 0.00625
 
+  origin_data_dir: dataset/
+  processed_data_dir: dataset/
+
 
 vit_config:
   pretrained_resolution : 224

@@ -22,8 +22,8 @@ from data import get_naive_dataloader, get_new_dataloader
 from utils import get_logger, set_seed, compute_metrics
 from module.grad import CrossEn
 
-torch.distributed.init_process_group(backend="nccl", timeout=datetime.timedelta(0, 18000))
-_time = time.strftime("%y_%m_%d_%H:%M:%S", time.localtime())
+torch.distributed.init_process_group(backend="gloo", timeout=datetime.timedelta(0, 18000))
+_time = "test" #time.strftime("%y_%m_%d_%H:%M:%S", time.localtime())
 local_rank = torch.distributed.get_rank()
 n_gpu = torch.distributed.get_world_size()
 
@@ -49,7 +49,7 @@ def get_args(description='MineCLIP args'):
     parser.add_argument('--use_finetune', type=bool, default=True, help='fine tune')
 
     parser.add_argument('--pretrain_model_path', type=str,
-                        default="/path/of/ViT-B-16", help='pretrain model path')
+                        default="./ViT-B-16.pt", help='pretrain model path')
     parser.add_argument('--clip_frame_num', type=int, default=16, help='frame num for each shorter clip')
 
     parser.add_argument('--use_mask', action='store_true', default=False, help='data process name')
@@ -69,6 +69,7 @@ def get_args(description='MineCLIP args'):
 
     parser.add_argument('--text_freeze_layer', type=int, default=11, help='text encoder freeze layer')
     parser.add_argument('--video_freeze_layer', type=int, default=11, help='video encoder freeze layer')
+    parser.add_argument('--distributed_training', type=bool, default=False, help='Set true/false to enable/distable distributed training')
 
     args = parser.parse_args()
     args.seed = args.seed + local_rank
@@ -91,7 +92,7 @@ def train_epoch(epoch, args, model, train_dataloader, device, optimizer, schedul
     log_step = args.n_display
     start_time = time.time()
     total_loss = 0
-    grad_step = 0
+    grad_step = 0.00001
 
     for step, batch in enumerate(train_dataloader):
         torch.cuda.empty_cache()
@@ -162,6 +163,7 @@ def eval_epoch(model, test_dataloader, writer, epoch, device):
             print("{}/{}\r".format(bid, len(test_dataloader)), end="")
 
         if local_rank == 0:
+            print(111111111111111,batch_list_v)
             if isinstance(batch_list_v[0], list):
                 kind = len(batch_list_v)
                 video_features = [torch.cat(itm, dim=0) for itm in batch_list_v]
@@ -289,7 +291,8 @@ def main(args):
                               text_freeze_layer=args.text_freeze_layer,
                               video_freeze_layer=args.video_freeze_layer)
 
-    model = torch.nn.parallel.DistributedDataParallel(model, device_ids=[local_rank],
+    if args.distributed_training:
+        model = torch.nn.parallel.DistributedDataParallel(model, device_ids=[local_rank],
                                                       output_device=local_rank, find_unused_parameters=True)
 
     scheduler = None

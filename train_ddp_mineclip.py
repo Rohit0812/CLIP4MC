@@ -22,7 +22,7 @@ from data import get_naive_dataloader
 from utils import get_logger, set_seed, compute_metrics
 from module.grad import CrossEn
 
-torch.distributed.init_process_group(backend="nccl", timeout=datetime.timedelta(0, 18000))
+torch.distributed.init_process_group(backend="gloo", timeout=datetime.timedelta(0, 18000))
 _time = time.strftime("%y_%m_%d_%H:%M:%S", time.localtime())
 local_rank = torch.distributed.get_rank()
 n_gpu = torch.distributed.get_world_size()
@@ -49,7 +49,7 @@ def get_args(description='MineCLIP args'):
     parser.add_argument('--use_finetune', type=bool, default=True, help='fine tune')
 
     parser.add_argument('--pretrain_model_path', type=str,
-                        default="/path/of/ViT-B-16", help='pretrain model path')
+                        default="./ViT-B-16.pt", help='pretrain model path')
     parser.add_argument('--clip_frame_num', type=int, default=16, help='frame num for each shorter clip')
 
     parser.add_argument('--use_mask', action='store_true', default=False, help='data process name')
