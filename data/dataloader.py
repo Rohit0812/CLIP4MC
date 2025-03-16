@@ -63,7 +63,7 @@ def get_new_dataloader(use_mask: bool,
         batch_size = batch_size // n_devices
     else:
         new_sampler = None
-
+    
     new_dataloader = DataLoader(new_dataset,
                                   batch_size=batch_size,
                                   num_workers=num_workers,
@@ -71,4 +71,5 @@ def get_new_dataloader(use_mask: bool,
                                   shuffle=(new_sampler is None),
                                   sampler=new_sampler,
                                   drop_last=True)
+    
     return new_dataloader, new_sampler, len(new_dataset)

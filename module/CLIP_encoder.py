@@ -166,6 +166,7 @@ class VisionTransformer(nn.Module):
         Returns:
             embedding of the image
         """
+        print("x.shape", x.shape)
         assert x.size()[-3:] == (3, *self._resolution), \
             f"input size must be (3,{self._resolution[0]},{self._resolution[1]})"
 
@@ -286,6 +287,7 @@ class GPT(nn.Module):
         return mask
 
     def get_hidden_state(self, text: torch.Tensor, full: bool = False):
+        print("text", text.size())
         assert text.size()[-1] == self.context_length, \
             f"input size must be (batch_size, {self.context_length})"
         assert len(text.shape) < 3, \

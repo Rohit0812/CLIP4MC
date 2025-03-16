@@ -96,11 +96,13 @@ def train_epoch(epoch, args, model, train_dataloader, device, optimizer, schedul
 
     for step, batch in enumerate(train_dataloader):
         torch.cuda.empty_cache()
-        # print(len(batch))
-        # for t in batch:
-        #     print(type(t))
-        #     t.to(device)
+        #print(len(batch))
+        #for t in batch:
+        #    print(type(t))
+        #    print()
+            #t.to(device)
         batch = tuple(t.to(device) for t in batch)
+        
         with autocast(device_type='cuda'):
             loss = model(*batch, train=True)
 
@@ -265,7 +267,7 @@ def main(args):
         = get_new_dataloader(args.use_mask, args.batch_size, 'train', args.num_workers)
     test_dataloader, test_sampler, test_length \
         = get_new_dataloader(args.use_mask, args.batch_size_test, 'test', args.num_workers)
-
+    
     num_train_optimization_steps = train_length // args.batch_size * args.epochs
 
     if local_rank == 0:
@@ -291,7 +293,7 @@ def main(args):
                               text_freeze_layer=args.text_freeze_layer,
                               video_freeze_layer=args.video_freeze_layer)
 
-    if args.distributed_training:
+    if 1: #args.distributed_training:
         model = torch.nn.parallel.DistributedDataParallel(model, device_ids=[local_rank],
                                                       output_device=local_rank, find_unused_parameters=True)
 
