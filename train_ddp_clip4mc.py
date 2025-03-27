@@ -98,7 +98,7 @@ def train_epoch(epoch, args, model, train_dataloader, device, optimizer, schedul
         torch.cuda.empty_cache()
         #print(len(batch))
         #for t in batch:
-        #    print(type(t))
+        #    print(type(t), t)
         #    print()
             #t.to(device)
         batch = tuple(t.to(device) for t in batch)

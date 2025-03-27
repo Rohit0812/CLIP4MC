@@ -136,13 +136,12 @@ def load_processed_data_new(data_id: int, use_mask: bool = True, dataset: Litera
 
     file_path = processed_list[data_id]
     with open(os.path.join(file_path, 'text_input.pkl'), 'rb') as f:
-        text_input = pickle.load(f)#["tokens"]
-        #print("text_inpiut", text_input)
+        text_input = pickle.load(f)["tokens"]
 
     with open(os.path.join(file_path, 'video_input.pkl'), 'rb') as f:
         video_input_chosen = pickle.load(f)
-    #print(2222222, video_input_chosen)
-    video_input_chosen = np.array(video_input_chosen).transpose(0,3,1,2)
+    
+    video_input_chosen = np.array(video_input_chosen)#.transpose(0,3,1,2)
 
     length = video_input_chosen.shape[0]
     k = length // 16

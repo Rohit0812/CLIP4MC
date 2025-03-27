@@ -50,6 +50,7 @@ def torch_normalize(tensor: torch.Tensor, mean=MC_IMAGE_MEAN, std=MC_IMAGE_STD, 
         mean = mean[:, None, None]
     if std.ndim == 1:
         std = std[:, None, None]
+    
     tensor.sub_(mean).div_(std)
     return tensor
 

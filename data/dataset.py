@@ -31,7 +31,6 @@ class NaiveDataset(Dataset):
         video = data[-1]
 
         video = torch.as_tensor(video.copy())
-
         if self.dataset == 'train':
 
             video = image_transform(torch.as_tensor(video))
@@ -65,14 +64,10 @@ class NewDataset(Dataset):
         data = list(load_processed_data_new(idx, self.use_mask, self.dataset))
         video = data[-1]
 
-
-
         video = torch.as_tensor(video.copy())
-
+        
         if self.dataset == 'train':
-
             video = image_transform(torch.as_tensor(video))
-
             video = torch_normalize(video.float())
         else:
             video = torch_normalize(torch.as_tensor(video).float())

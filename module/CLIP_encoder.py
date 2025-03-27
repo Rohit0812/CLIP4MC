@@ -166,7 +166,6 @@ class VisionTransformer(nn.Module):
         Returns:
             embedding of the image
         """
-        print("x.shape", x.shape)
         assert x.size()[-3:] == (3, *self._resolution), \
             f"input size must be (3,{self._resolution[0]},{self._resolution[1]})"
 
