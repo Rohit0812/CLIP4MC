@@ -24,8 +24,6 @@ class CrossEn_Swap(nn.Module):
     def forward(self, sim_matrix, gamma_vals=None):
         pt0 = sim_matrix.softmax(dim=-1) + 1e-8
         
-        
-        
         if gamma_vals != None:
             pt_list = []
             for i in range(len(gamma_vals)):

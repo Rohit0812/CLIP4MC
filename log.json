@@ -1,4 +1,20 @@
 {
-  "train": ["./dataset/data_dir_0", "./dataset/data_dir_1", "./dataset/data_dir_2"],
-  "test" : ["./dataset/data_dir_3", "./dataset/data_dir_4"]
+  "train1": [
+    "./dataset/data_dir_0", "./dataset/data_dir_1", "./dataset/data_dir_2", "./dataset/data_dir_3", 
+    "./dataset/data_dir_4", "./dataset/data_dir_5", "./dataset/data_dir_6", "./dataset/data_dir_7",
+    "./dataset/data_dir_8", "./dataset/data_dir_9", "./dataset/data_dir_10", "./dataset/data_dir_11", 
+    "./dataset/data_dir_12", "./dataset/data_dir_13", "./dataset/data_dir_14", "./dataset/data_dir_15",
+    "./dataset/data_dir_16", "./dataset/data_dir_17", "./dataset/data_dir_18", "./dataset/data_dir_19",
+    "./dataset/data_dir_20", "./dataset/data_dir_21", "./dataset/data_dir_22", "./dataset/data_dir_23",
+    "./dataset/data_dir_24", "./dataset/data_dir_25", "./dataset/data_dir_26", "./dataset/data_dir_27",
+    "./dataset/data_dir_28", "./dataset/data_dir_29", "./dataset/data_dir_30", "./dataset/data_dir_31"
+  ],
+  "test1" : [
+    "./dataset/data_dir_32", "./dataset/data_dir_33", "./dataset/data_dir_34", "./dataset/data_dir_35",
+    "./dataset/data_dir_36", "./dataset/data_dir_37", "./dataset/data_dir_38", "./dataset/data_dir_39",
+    "./dataset/data_dir_40", "./dataset/data_dir_41", "./dataset/data_dir_42"
+  ],
+  "train": [
+    "./dataset/data_dir_0", "./dataset/data_dir_1", "./dataset/data_dir_2", "./dataset/data_dir_3"],
+  "test" : ["./dataset/data_dir_4", "./dataset/data_dir_5", "./dataset/data_dir_6", "./dataset/data_dir_7"]
 }

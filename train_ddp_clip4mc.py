@@ -57,7 +57,7 @@ def get_args(description='MineCLIP args'):
     parser.add_argument('--num_workers', type=int, default=8, help='num workers')
     parser.add_argument('--batch_size_test', type=int, default=400, help='batch size test')
 
-    parser.add_argument('--epochs', type=int, default=40, help='epochs')
+    parser.add_argument('--epochs', type=int, default=10, help='epochs')
     parser.add_argument('--optimizer_name', type=str, default="BertAdam", help='optimizer name')
     parser.add_argument('--schedule_name', type=str, default="warmup_cosine", help='schedule name')
     parser.add_argument('--lr', type=float, default=1.5e-4, help='initial learning rate')
@@ -165,7 +165,6 @@ def eval_epoch(model, test_dataloader, writer, epoch, device):
             print("{}/{}\r".format(bid, len(test_dataloader)), end="")
 
         if local_rank == 0:
-            print(111111111111111,batch_list_v)
             if isinstance(batch_list_v[0], list):
                 kind = len(batch_list_v)
                 video_features = [torch.cat(itm, dim=0) for itm in batch_list_v]
