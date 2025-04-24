@@ -15,7 +15,7 @@ from tensorboardX import SummaryWriter
 from torch.amp import autocast
 import yaml
 
-from model import CLIP4MC
+from model import CLIP4MC, CLIP4MC_Restricted
 
 from module import get_optimizer
 from data import get_naive_dataloader, get_new_dataloader
@@ -253,7 +253,7 @@ def main(args):
         pretrained_model = None
 
 
-    model = CLIP4MC(frame_num=args.clip_frame_num,
+    model = CLIP4MC_Restricted(frame_num=args.clip_frame_num,
                     use_action=False,
                     use_brief_text=False,
                     pretrained_clip=pretrained_model)

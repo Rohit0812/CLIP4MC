@@ -15,6 +15,11 @@
     "./dataset/data_dir_40", "./dataset/data_dir_41", "./dataset/data_dir_42"
   ],
   "train": [
-    "./dataset/data_dir_0", "./dataset/data_dir_1", "./dataset/data_dir_2", "./dataset/data_dir_3"],
-  "test" : ["./dataset/data_dir_4", "./dataset/data_dir_5", "./dataset/data_dir_6", "./dataset/data_dir_7"]
+    "./dataset/data_dir_0", "./dataset/data_dir_1", "./dataset/data_dir_2", "./dataset/data_dir_3", "./dataset/data_dir_4",
+    "./dataset/data_dir_5", "./dataset/data_dir_6", "./dataset/data_dir_7", "./dataset/data_dir_8" 
+  ],
+  "test" : [
+    "./dataset/data_dir_9", "./dataset/data_dir_10", "./dataset/data_dir_11", "./dataset/data_dir_12",
+    "./dataset/data_dir_13", "./dataset/data_dir_14"
+  ]
 }

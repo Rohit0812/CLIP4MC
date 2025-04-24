@@ -7,3 +7,4 @@ __pycache__/
 ViT-B-16.pt
 dataset/
 ckpt/
+nltk_data/
